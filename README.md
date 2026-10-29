@@ -2,8 +2,6 @@
 
 > Cypress smoke test suite covering core Amazon.com user flows: homepage load, product search, Today's Deals navigation, the footer Careers link and a category search.
 
-![Tests](https://github.com/Carlos-44/amazon-cypress-smoke-tests/actions/workflows/test.yml/badge.svg)
-
 ## Tech Stack
 - **Language:** JavaScript (Node.js)
 - **Framework:** Cypress 13
@@ -41,7 +39,7 @@ npm run test:open
 > These tests run against live amazon.com. Amazon's bot protection often blocks automated browsers from cloud CI servers, so CI runs can fail on a CAPTCHA page even when the tests themselves are fine. Run them locally for reliable results.
 
 ## CI/CD
-Every push and pull request to `main` runs the suite in Chrome on GitHub Actions (see `.github/workflows/test.yml`):
+The workflow (`.github/workflows/test.yml`) runs on demand from the Actions tab (**Run workflow**), not on every push, because Amazon blocks automated browsers from GitHub's cloud runners. When run:
 - Cypress writes JUnit XML, and [dorny/test-reporter](https://github.com/dorny/test-reporter) publishes it as a GitHub Check
 - Failure screenshots are uploaded as artifacts for 14 days
 
