@@ -1,22 +1,20 @@
 class LoginPage {
-  enterEmail(email) {
-    cy.get('[name="email"]').type(email);
+  visit() {
+    cy.visit("/");
   }
 
-  submitEmail() {
-    cy.get('[type="submit"]').click();
+  login({ username, password }) {
+    cy.get('[data-test="username"]').type(username);
+    cy.get('[data-test="password"]').type(password);
+    cy.get('[data-test="login-button"]').click();
   }
 
-  enterPassword(password) {
-    cy.get('[name="password"]').type(password);
+  errorMessage() {
+    return cy.get('[data-test="error"]');
   }
 
-  submitLogin() {
-    cy.get('[id="signInSubmit"]').click();
-  }
-
-  verifyCaptcha() {
-    cy.contains('Solve this puzzle to protect your account').should('be.visible');
+  loginButton() {
+    return cy.get('[data-test="login-button"]');
   }
 }
 

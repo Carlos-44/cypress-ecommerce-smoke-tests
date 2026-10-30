@@ -1,5 +1,5 @@
 {
-  "name": "amazon-cypress-smoke-tests",
+  "name": "cypress-ecommerce-smoke-tests",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "keywords": [],
   "author": "Carlos Ozoria",
   "license": "ISC",
-  "description": "Cypress smoke tests (Page Object Model) for core Amazon.com user flows",
+  "description": "Cypress smoke tests (Page Object Model) for the SauceDemo store",
   "devDependencies": {
     "cypress": "^13.13.3"
   }

@@ -1,9 +1,10 @@
 name: Run Tests
 
-# Manual trigger only: Amazon's bot protection blocks automated browsers from
-# GitHub-hosted runners (page loads time out), so push-triggered runs can't pass.
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 permissions:
   checks: write # required by dorny/test-reporter
