@@ -59,6 +59,9 @@ jobs:
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm ci
 
+      - name: Install reporter packages
+        run: npm install --no-save cypress-mochawesome-reporter mochawesome mochawesome-merge mochawesome-report-generator cypress-multi-reporters mocha-junit-reporter
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         continue-on-error: true # the report stage decides pass or fail
@@ -72,6 +75,15 @@ jobs:
         with:
           name: test-results
           path: cypress/results/
+          retention-days: 14
+
+      - name: Upload mochawesome HTML report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-mochawesome-report
+          path: cypress/reports/mochawesome/
+          if-no-files-found: ignore
           retention-days: 14
 
       - name: Upload failure screenshots
