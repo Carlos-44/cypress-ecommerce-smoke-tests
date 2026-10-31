@@ -5,13 +5,23 @@
   "scripts": {
     "test": "cypress run",
     "test:open": "cypress open",
-    "test:chrome": "cypress run --browser chrome"
+    "test:chrome": "cypress run --browser chrome",
+    "test:bdd": "cypress run --spec 'cypress/e2e/**/*.feature'",
+    "test:bdd:open": "cypress open --spec 'cypress/e2e/**/*.feature'"
   },
   "keywords": [],
   "author": "Carlos Ozoria",
   "license": "ISC",
   "description": "Cypress smoke tests (Page Object Model) for the SauceDemo store",
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.2",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
     "cypress": "^13.13.3"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/support/step_definitions/**/*.js",
+    "filterSpecs": true,
+    "omitFiltered": true
   }
 }
