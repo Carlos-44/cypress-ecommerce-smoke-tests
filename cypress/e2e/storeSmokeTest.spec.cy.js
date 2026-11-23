@@ -12,7 +12,7 @@ describe("SauceDemo store smoke tests", () => {
     loginPage.visit();
   });
 
-  it("logs in with a valid user and shows the product list", function () {
+  it("[TC-001] logs in with a valid user and shows the product list", function () {
     loginPage.login(this.users.standard);
 
     cy.url().should("include", "/inventory.html");
@@ -20,7 +20,7 @@ describe("SauceDemo store smoke tests", () => {
     inventoryPage.items().should("have.length", 6);
   });
 
-  it("shows an error for a locked-out user", function () {
+  it("[TC-002] shows an error for a locked-out user", function () {
     loginPage.login(this.users.lockedOut);
 
     loginPage
@@ -30,7 +30,7 @@ describe("SauceDemo store smoke tests", () => {
     cy.url().should("not.include", "/inventory.html");
   });
 
-  it("sorts products by price from low to high", function () {
+  it("[TC-005] sorts products by price from low to high", function () {
     loginPage.login(this.users.standard);
     inventoryPage.sortBy("lohi");
 
@@ -40,7 +40,7 @@ describe("SauceDemo store smoke tests", () => {
     });
   });
 
-  it("adds a product to the cart", function () {
+  it("[TC-007] adds a product to the cart", function () {
     loginPage.login(this.users.standard);
     inventoryPage.addToCart("sauce-labs-backpack");
 
@@ -77,7 +77,7 @@ describe("SauceDemo store smoke tests", () => {
     inventoryPage.cartBadge().should("not.exist");
   });
 
-  it("logs out and returns to the login page", function () {
+  it("[TC-003] logs out and returns to the login page", function () {
     loginPage.login(this.users.standard);
     inventoryPage.logout();
 

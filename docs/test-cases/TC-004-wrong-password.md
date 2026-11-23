@@ -2,7 +2,7 @@
 
 - **Priority:** P2
 - **Type:** negative
-- **Linked criteria:** F-01 AC-04
+- **Linked criteria:** F-01 AC-04 ([F-01](../features/F-01-login-logout.md))
 - **Status:** Automated
 - **Automation:** cypress/e2e/storeSmokeTest.spec.cy.js — "[TC-004] shows an error for a wrong password"
 
@@ -22,4 +22,4 @@
 **Pass criteria:** Login is refused with the mismatch error.
 
 ## Notes
-- Passed locally 2026-11-23 (Node 20.20.2, Cypress 13.13.3, Electron headless): 13/13 specs.
+- Passed locally 2026-11-23 (Node 20.20.2, Cypress 13.13.3, Electron headless): 13/13 specs, after the TC-ID renames.

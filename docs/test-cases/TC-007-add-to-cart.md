@@ -1,9 +1,9 @@
 # TC-007: Add a product to the cart
 
 - **Priority:** P1
-- **Linked criteria:** F-03 AC-01
+- **Linked criteria:** F-03 AC-01 ([F-03](../features/F-03-cart.md))
 - **Status:** Automated
-- **Automation:** cypress/e2e/storeSmokeTest.spec.cy.js — "adds a product to the cart"
+- **Automation:** cypress/e2e/storeSmokeTest.spec.cy.js — "[TC-007] adds a product to the cart"
 
 ## Preconditions
 - saucedemo.com is reachable (a public demo store built for test-automation practice).
@@ -22,4 +22,4 @@
 **Pass criteria:** The cart contains the backpack and the badge shows 1.
 
 ## Notes
-- Passed locally 2026-11-23 (Node 20.20.2, Cypress 13.13.3, Electron headless): 13/13 specs.
+- Passed locally 2026-11-23 (Node 20.20.2, Cypress 13.13.3, Electron headless): 13/13 specs, after the TC-ID renames.
