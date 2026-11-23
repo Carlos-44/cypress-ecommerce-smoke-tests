@@ -49,6 +49,34 @@ describe("SauceDemo store smoke tests", () => {
     cartPage.itemNames().should("have.length", 1).and("have.text", "Sauce Labs Backpack");
   });
 
+  it("[TC-004] shows an error for a wrong password", function () {
+    loginPage.login(this.users.wrongPassword);
+    loginPage
+      .errorMessage()
+      .should("be.visible")
+      .and("contain.text", "Username and password do not match any user in this service");
+    cy.url().should("not.include", "/inventory.html");
+  });
+
+  it("[TC-006] sorts products by price from high to low", function () {
+    loginPage.login(this.users.standard);
+    inventoryPage.sortBy("hilo");
+    inventoryPage.prices().then((prices) => {
+      const sorted = [...prices].sort((a, b) => b - a);
+      expect(prices).to.deep.equal(sorted);
+    });
+  });
+
+  it("[TC-008] removes a product from the cart", function () {
+    loginPage.login(this.users.standard);
+    inventoryPage.addToCart("sauce-labs-backpack");
+    inventoryPage.cartBadge().should("have.text", "1");
+    inventoryPage.openCart();
+    cartPage.removeItem("sauce-labs-backpack");
+    cartPage.itemNames().should("not.exist");
+    inventoryPage.cartBadge().should("not.exist");
+  });
+
   it("logs out and returns to the login page", function () {
     loginPage.login(this.users.standard);
     inventoryPage.logout();

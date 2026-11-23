@@ -1,20 +1,16 @@
 # Test cases: traceability
 
-New IDs start at TC-001. Each acceptance criterion in `docs/features/` has at least one test case.
+One manual test-case file per test case. Automated tests are in `cypress/e2e/storeSmokeTest.spec.cy.js`. TC-001, 002, 003, 005 and 007 also have Cucumber scenarios in `cypress/e2e/features/store-smoke.feature`. Status is Automated only when the test passed in a recorded run.
 
-| Requirement | Test cases | Automated |
-|---|---|---|
-| F-01 AC-01 | [TC-001](TC-001.md) | Yes |
-| F-01 AC-02 | [TC-002](TC-002.md) | Yes |
-| F-01 AC-03 | [TC-003](TC-003.md) | Yes |
-| F-01 AC-04 | [TC-004](TC-004.md) | No |
-| F-02 AC-01 | [TC-005](TC-005.md) | Yes |
-| F-02 AC-02 | [TC-006](TC-006.md) | No |
-| F-03 AC-01 | [TC-007](TC-007.md) | Yes |
-| F-03 AC-02 | [TC-008](TC-008.md) | No |
+| TC ID | Status | Automation file | Manual file |
+|---|---|---|---|
+| TC-001 | Automated | `cypress/e2e/storeSmokeTest.spec.cy.js` | [TC-001-standard-user-login.md](TC-001-standard-user-login.md) |
+| TC-002 | Automated | `cypress/e2e/storeSmokeTest.spec.cy.js` | [TC-002-locked-out-user.md](TC-002-locked-out-user.md) |
+| TC-003 | Automated | `cypress/e2e/storeSmokeTest.spec.cy.js` | [TC-003-logout.md](TC-003-logout.md) |
+| TC-004 | Automated | `cypress/e2e/storeSmokeTest.spec.cy.js` | [TC-004-wrong-password.md](TC-004-wrong-password.md) |
+| TC-005 | Automated | `cypress/e2e/storeSmokeTest.spec.cy.js` | [TC-005-sort-price-low-high.md](TC-005-sort-price-low-high.md) |
+| TC-006 | Automated | `cypress/e2e/storeSmokeTest.spec.cy.js` | [TC-006-sort-price-high-low.md](TC-006-sort-price-high-low.md) |
+| TC-007 | Automated | `cypress/e2e/storeSmokeTest.spec.cy.js` | [TC-007-add-to-cart.md](TC-007-add-to-cart.md) |
+| TC-008 | Automated | `cypress/e2e/storeSmokeTest.spec.cy.js` | [TC-008-remove-from-cart.md](TC-008-remove-from-cart.md) |
 
-Totals: 8 test cases. 5 are Automated (TC-001, TC-002, TC-003, TC-005, TC-007); all passed locally on 2026-11-23 (10/10 specs). 3 have no test yet and are Not started (TC-004, TC-006, TC-008).
-
-Notes:
-- The Cucumber feature `cypress/e2e/features/store-smoke.feature` mirrors TC-001, TC-002, TC-003, TC-005 and TC-007.
-- All cases depend on the third-party saucedemo.com site.
+Totals: 8 test cases — 8 Automated, 0 Manual only, 0 Not started.
