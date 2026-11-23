@@ -2,9 +2,9 @@
 
 - **Priority:** P1
 - **Type:** negative
-- **Linked criteria:** F-01 AC-02
+- **Linked criteria:** F-01 AC-02 ([F-01](../features/F-01-login-logout.md))
 - **Status:** Automated
-- **Automation:** cypress/e2e/storeSmokeTest.spec.cy.js — "shows an error for a locked-out user"
+- **Automation:** cypress/e2e/storeSmokeTest.spec.cy.js — "[TC-002] shows an error for a locked-out user"
 
 ## Preconditions
 - saucedemo.com is reachable (a public demo store built for test-automation practice).
@@ -22,4 +22,4 @@
 **Pass criteria:** Login is refused with the locked-out error.
 
 ## Notes
-- Passed locally 2026-11-23 (Node 20.20.2, Cypress 13.13.3, Electron headless): 13/13 specs.
+- Passed locally 2026-11-23 (Node 20.20.2, Cypress 13.13.3, Electron headless): 13/13 specs, after the TC-ID renames.
