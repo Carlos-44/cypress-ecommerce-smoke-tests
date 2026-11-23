@@ -59,9 +59,6 @@ jobs:
         if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm ci
 
-      - name: Install reporter packages
-        run: npm install --no-save cypress-mochawesome-reporter mochawesome mochawesome-merge mochawesome-report-generator cypress-multi-reporters mocha-junit-reporter
-
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         continue-on-error: true # the report stage decides pass or fail
